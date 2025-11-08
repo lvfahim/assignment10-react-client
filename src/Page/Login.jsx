@@ -1,12 +1,46 @@
-import React from 'react';
-import { Link } from 'react-router';
+import React, { useContext } from 'react';
+import { FcGoogle } from 'react-icons/fc';
+import { Link, useLocation, useNavigate } from 'react-router';
+import { AuthContext } from '../Provider/AuthProvider';
+import { ToastContainer, toast } from 'react-toastify';
 
 const Login = () => {
+    const { Login, Google } = useContext(AuthContext)
+    const location = useLocation()
+    const navigate = useNavigate()
+    const heandleFormGoogle = () => {
+        Google()
+            .then(result => {
+                console.log(result)
+                navigate(`${location.state ? location.state : '/'}`)
+            })
+            .catch(error => {
+                console.log(error)
+                toast('Google login failed. Please try again.')
+            })
+    }
     const heandleForm = (e) => {
         e.preventDefault();
         const email = e.target.email.value;
         const password = e.target.password.value;
-        console.log(email, password)
+        Login(email, password)
+            .then((userCredential) => {
+                // Signed in 
+                const user = userCredential.user;
+                console.log(user)
+                navigate(`${location.state ? location.state : '/'}`)
+                // ...
+            })
+            .catch((error) => {
+                if (error.code === 'auth/email-already-in-use') {
+                    toast('Please enter both email and password.')
+                    return;
+                }
+                else if (error.massage === 'auth/weak-password') {
+                    toast('Please enter both email and password.')
+                    return;
+                }
+            });
 
     }
     return (
@@ -29,8 +63,10 @@ const Login = () => {
                         <p className='text-2xl'>OR</p>
                         <p>....................................</p>
                     </div>
+                    <button onClick={heandleFormGoogle} className='btn btn-primary-gradient'><FcGoogle /> Login In With Google</button>
                     <h2>Don't have an account? <Link className='text-blue-500 underline' to='/auth/register'>Register Now</Link></h2>
                 </div>
+                <ToastContainer />
             </div>
         </div>
     );

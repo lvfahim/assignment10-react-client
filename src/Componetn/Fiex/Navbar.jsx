@@ -1,12 +1,23 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link, NavLink } from 'react-router';
+import { AuthContext } from '../../Provider/AuthProvider';
 
 const Navbar = () => {
-    const Links =<>
-    <li><NavLink to='/'>Home</NavLink></li>
-    <li><NavLink to='/about'>About Us</NavLink></li>
-    <li><NavLink to='/blog'>Blog</NavLink></li>
+    const { user, LogOut } = useContext(AuthContext)
+    const Links = <>
+        <li><NavLink to='/'>Home</NavLink></li>
+        <li><NavLink to='/about'>About Us</NavLink></li>
+        <li><NavLink to='/blog'>Blog</NavLink></li>
     </>
+    const heandlLogOut = () => {
+        LogOut()
+            .then(() => {
+                // Sign-out successful.
+            }).catch((error) => {
+                // An error happened.
+                alert(error)
+            });
+    }
     return (
         <div className='w-11/12 mx-auto'>
             <div className="navbar justify-between">
@@ -18,7 +29,7 @@ const Navbar = () => {
                         <ul
                             tabIndex={0}
                             className="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
-                           {Links}
+                            {Links}
                         </ul>
                     </div>
                     <Link to='/'><h1 className="text-4xl font-bold ml-0 md:ml-8">
@@ -29,11 +40,11 @@ const Navbar = () => {
                 </div>
                 <div className=" navbar-end hidden lg:flex">
                     <ul className="menu menu-horizontal px-1 ">
-                     {Links}
+                        {Links}
                     </ul>
                 </div>
                 <div className='md:mr-8 mr-0'>
-                    <Link to='/auth/login'><button className="btn btn-primary-gradient">Login</button></Link>
+                    {user ? <button onClick={heandlLogOut} className="btn btn-primary-gradient">LogOut</button> : <Link to='/auth/login'><button className="btn btn-primary-gradient">Login</button></Link>}
                 </div>
             </div>
         </div>
