@@ -6,9 +6,20 @@ import { ToastContainer, toast } from 'react-toastify';
 import Swal from 'sweetalert2';
 
 const Register = () => {
-    const { Register, UpData, setUser } = useContext(AuthContext)
+    const { Register, UpData, setUser,Google } = useContext(AuthContext)
     const navigate = useNavigate()
     const location = useLocation()
+    const heandleFormGoogle = ()=>{
+        Google()
+         .then(result => {
+                console.log(result)
+                navigate(`${location.state ? location.state : '/'}`)
+            })
+            .catch(error => {
+                console.log(error)
+               toast('Google login failed. Please try again.')
+            })
+    }
     const heandleForm = (e) => {
         e.preventDefault();
         const email = e.target.email.value;
@@ -71,7 +82,7 @@ const Register = () => {
                         <p className='text-2xl'>OR</p>
                         <p>....................................</p>
                     </div>
-                    <button className='btn btn-primary-gradient'><FcGoogle /> Login In With Google</button>
+                    <button onClick={heandleFormGoogle} className='btn btn-primary-gradient'><FcGoogle /> Login In With Google</button>
                     <h2>Don't have an account? <Link className='text-blue-500 underline' to='/auth/login'>Login Now</Link></h2>
                 </div>
                 <ToastContainer />
