@@ -1,18 +1,30 @@
-import React, { useContext } from 'react';
+import React, { useContext, useState } from 'react';
 import { FcGoogle } from 'react-icons/fc';
 import { Link, useLocation, useNavigate } from 'react-router';
 import { AuthContext } from '../Provider/AuthProvider';
 import { ToastContainer, toast } from 'react-toastify';
 import Swal from 'sweetalert2';
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
 
 const Register = () => {
     const { Register, UpData, setUser, Google } = useContext(AuthContext)
     const navigate = useNavigate()
     const location = useLocation()
+    const [showPassword, setShowPassword] = useState(false);
+
+    const handleEye = (e) => {
+        e.preventDefault();
+        setShowPassword(!showPassword);
+    };
     const heandleFormGoogle = () => {
         Google()
             .then(result => {
                 console.log(result)
+                Swal.fire({
+                    title: "Register SusseccFully",
+                    icon: "success",
+                    draggable: true
+                });
                 navigate(`${location.state ? location.state : '/'}`)
             })
             .catch(error => {
@@ -26,6 +38,11 @@ const Register = () => {
         const password = e.target.password.value;
         const photo = e.target.photo.value;
         const name = e.target.name.value
+        const passwordCheck = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d).{7,}$/;
+        if (!passwordCheck.test(password)) {
+            toast('Password must be at least 7 characters, include uppercase, lowercase, and a number.')
+            return;
+        }
         Register(email, password)
             .then((userCredential) => {
                 // Signed up 
@@ -77,7 +94,22 @@ const Register = () => {
                             <label className="label">Photo URL</label>
                             <input type="text" className="input" placeholder="Photo URL" name='photo' required />
                             <label className="label">Password</label>
-                            <input type="password" className="input" placeholder="Password" name='password' required />
+                            <div className="relative">
+                                <input
+                                    type={showPassword ? 'text' : 'password'}
+                                    name="password"
+                                    placeholder="Password"
+                                    className="input w-full"
+                                    required
+                                />
+                                <button
+                                    onClick={handleEye}
+                                    type="button"
+                                    className="absolute right-3 top-3 text-xl text-gray-600"
+                                >
+                                    {showPassword ? <FaEyeSlash /> : <FaEye />}
+                                </button>
+                            </div>
                             <button className="btn text-xl btn-primary-gradient  mt-4">Register Now</button>
                         </fieldset>
                     </form>

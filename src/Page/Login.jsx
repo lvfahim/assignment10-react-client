@@ -1,17 +1,30 @@
-import React, { useContext } from 'react';
+import React, { useContext, useRef, useState } from 'react';
 import { FcGoogle } from 'react-icons/fc';
 import { Link, useLocation, useNavigate } from 'react-router';
 import { AuthContext } from '../Provider/AuthProvider';
 import { ToastContainer, toast } from 'react-toastify';
+import { FaEye, FaEyeSlash } from 'react-icons/fa';
+import Swal from 'sweetalert2';
 
 const Login = () => {
-    const { Login, Google } = useContext(AuthContext)
+    const { Login, Google, ForgetPasssword } = useContext(AuthContext)
     const location = useLocation()
     const navigate = useNavigate()
+    const [showPassword, setShowPassword] = useState(false);
+    const Ref = useRef()
+    const handleEye = (e) => {
+        e.preventDefault();
+        setShowPassword(!showPassword);
+    };
     const heandleFormGoogle = () => {
         Google()
             .then(result => {
                 console.log(result)
+                Swal.fire({
+                    title: "Register SusseccFully",
+                    icon: "success",
+                    draggable: true
+                });
                 navigate(`${location.state ? location.state : '/'}`)
             })
             .catch(error => {
@@ -19,15 +32,36 @@ const Login = () => {
                 toast('Google login failed. Please try again.')
             })
     }
+    const heandlePassword = () => {
+        const email = Ref.current.value;
+        ForgetPasssword(email)
+            .then(() => {
+                toast('Pleage Chake Your Email')
+            })
+            .catch(error => {
+                console.log(error)
+            })
+    }
+
     const heandleForm = (e) => {
         e.preventDefault();
         const email = e.target.email.value;
         const password = e.target.password.value;
+        const passwordCheck = /^(?=.*[A-Z])(?=.*[a-z])(?=.*\d).{7,}$/;
+        if (!passwordCheck.test(password)) {
+            toast('Password must be at least 7 characters, include uppercase, lowercase, and a number.')
+            return;
+        }
         Login(email, password)
             .then((userCredential) => {
                 // Signed in 
                 const user = userCredential.user;
                 console.log(user)
+                Swal.fire({
+                    title: "Register SusseccFully",
+                    icon: "success",
+                    draggable: true
+                });
                 navigate(`${location.state ? location.state : '/'}`)
                 // ...
             })
@@ -41,7 +75,6 @@ const Login = () => {
                     return;
                 }
             });
-
     }
     return (
         <div className="hero bg-base-200 min-h-screen">
@@ -51,10 +84,25 @@ const Login = () => {
                     <form onSubmit={heandleForm}>
                         <fieldset className="fieldset">
                             <label className="label">Email</label>
-                            <input type="email" className="input" placeholder="Email" name='email' required />
+                            <input ref={Ref} type="email" className="input" placeholder="Email" name='email' required />
                             <label className="label">Password</label>
-                            <input type="password" className="input" placeholder="Password" name='password' required />
-                            <div><a className="link link-hover">Forgot password?</a></div>
+                            <div className="relative">
+                                <input
+                                    type={showPassword ? 'text' : 'password'}
+                                    name="password"
+                                    placeholder="Password"
+                                    className="input w-full"
+                                    required
+                                />
+                                <button
+                                    onClick={handleEye}
+                                    type="button"
+                                    className="absolute right-3 top-3 text-xl text-gray-600"
+                                >
+                                    {showPassword ? <FaEyeSlash /> : <FaEye />}
+                                </button>
+                            </div>
+                            <div><a onClick={heandlePassword} className="link link-hover">Forgot password?</a></div>
                             <button className="btn text-xl btn-primary-gradient  mt-4">Login Now</button>
                         </fieldset>
                     </form>
