@@ -6,18 +6,18 @@ import { ToastContainer, toast } from 'react-toastify';
 import Swal from 'sweetalert2';
 
 const Register = () => {
-    const { Register, UpData, setUser,Google } = useContext(AuthContext)
+    const { Register, UpData, setUser, Google } = useContext(AuthContext)
     const navigate = useNavigate()
     const location = useLocation()
-    const heandleFormGoogle = ()=>{
+    const heandleFormGoogle = () => {
         Google()
-         .then(result => {
+            .then(result => {
                 console.log(result)
                 navigate(`${location.state ? location.state : '/'}`)
             })
             .catch(error => {
                 console.log(error)
-               toast('Google login failed. Please try again.')
+                toast('Google login failed. Please try again.')
             })
     }
     const heandleForm = (e) => {
@@ -51,10 +51,14 @@ const Register = () => {
                 // ...
             })
             .catch((error) => {
-                const errorCode = error.code;
-                const errorMessage = error.message;
-                toast(errorCode);
-                toast(errorMessage)
+                if (error.code === 'auth/email-already-in-use') {
+                    toast('Please enter both email and password.')
+                    return;
+                }
+                else if (error.massage === 'auth/weak-password') {
+                    toast('Please enter both email and password.')
+                    return;
+                }
                 // ..
             });
 
