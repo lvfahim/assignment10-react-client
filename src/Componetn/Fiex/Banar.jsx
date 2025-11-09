@@ -13,7 +13,7 @@ const Banar = () => {
                 <p className='mt-3 text-gray-500 font-semibold'><span className='text-gray-800'>Dreams Rent </span>is a modern rental booking platform where <span className='text-gray-800'>users can easily</span> rent cars, bikes, and yachts for <span className='text-gray-800'>any occasion.</span> The system is designed to be <span className='text-gray-800'>simple, fast, and convenient</span> so users can browse <span className='text-gray-800'>vehicles, check prices, and book instantly.</span></p>
                 <div className='flex gap-4'>
                     <Link to='/aboutUs'><button className='text-white text-xl font-semibold bg-black hover:bg-blue-500 rounded-xl mt-4 p-3'>View More</button></Link>
-                    <Link to='/buyCar'><button className='text-white text-xl font-semibold bg-blue-500 hover:bg-black rounded-xl mt-4 p-3'>Buy Car</button></Link>
+                    <Link to='/buyCar'><button className='text-white text-xl font-semibold bg-blue-500 hover:bg-black rounded-xl mt-4 p-3'>My Bookings</button></Link>
                 </div>
                 <div>
                     <h1 className='mt-3 text-gray-700'>You can find us on any platform.</h1>

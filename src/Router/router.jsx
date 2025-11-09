@@ -12,6 +12,7 @@ import Home from "../Componetn/Fiex/Home";
 import AboutUS from "../Componetn/About/AboutUS";
 import BuyCar from "../Componetn/Car/BuyCar";
 import Blog from "../Componetn/Fiex/Blog";
+import OurServis from "../Componetn/About/OurServis";
 
 const router = createBrowserRouter([
   {
@@ -42,6 +43,10 @@ const router = createBrowserRouter([
         {
           path:'/blog',
           element:<Blog></Blog>
+        },
+        {
+          path:'/ourServis',
+          element:<OurServis></OurServis>
         }
     ]
   },

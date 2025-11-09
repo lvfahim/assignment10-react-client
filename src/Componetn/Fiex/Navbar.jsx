@@ -9,8 +9,9 @@ const Navbar = () => {
     const Links = <>
         <li><NavLink to='/'>Home</NavLink></li>
         <li><NavLink to='/aboutUs'>About Us</NavLink></li>
-        <li><NavLink to='/buyCar'>Buy Car</NavLink></li>
+        <li><NavLink to='/buyCar'>My Bookings</NavLink></li>
         <li><NavLink to='/blog'>Blog</NavLink></li>
+        <li><NavLink to='/ourServis'>Our Services</NavLink></li>
         <li><NavLink to='/user'>User</NavLink></li>
         
     </>
@@ -48,9 +49,11 @@ const Navbar = () => {
                         {Links}
                     </ul>
                 </div>
-                {/* <img className='w-12 rounded-full' src={`${user ? user.photoURL:Img}`} alt="" /> */}
+                <img className='w-12 rounded-full mx-2' src={`${user ? user.photoURL:Img}`} alt="" />
                 <div className='md:mr-8 mr-0'>
-                    {user ? <button onClick={heandlLogOut} className="btn btn-primary-gradient">LogOut</button> : <Link to='/auth/login'><button className="btn btn-primary-gradient">Login</button></Link>}
+                    {user ? 
+                    <button onClick={heandlLogOut} className="btn btn-primary-gradient">LogOut</button> :
+                     <Link to='/auth/login'><button className="btn btn-primary-gradient">Login</button></Link>}
                 </div>
             </div>
         </div>
