@@ -1,14 +1,18 @@
 import React, { useContext } from 'react';
 import { Link, NavLink } from 'react-router';
 import { AuthContext } from '../../Provider/AuthProvider';
+import Img from '../../assets/user.png'
 
 
 const Navbar = () => {
     const { user, LogOut } = useContext(AuthContext)
     const Links = <>
         <li><NavLink to='/'>Home</NavLink></li>
-        <li><NavLink to='/about'>About Us</NavLink></li>
+        <li><NavLink to='/aboutUs'>About Us</NavLink></li>
+        <li><NavLink to='/buyCar'>Buy Car</NavLink></li>
         <li><NavLink to='/blog'>Blog</NavLink></li>
+        <li><NavLink to='/user'>User</NavLink></li>
+        
     </>
     const heandlLogOut = () => {
         LogOut()
@@ -20,7 +24,7 @@ const Navbar = () => {
             });
     }
     return (
-        <div className='w-11/12 mx-auto'>
+        <div className='w-11/12 mx-auto shadow bg-blue-200 mt-5 rounded-2xl'>
             <div className="navbar justify-between">
                 <div className="navbar-start">
                     <div className="dropdown">
@@ -44,6 +48,7 @@ const Navbar = () => {
                         {Links}
                     </ul>
                 </div>
+                {/* <img className='w-12 rounded-full' src={`${user ? user.photoURL:Img}`} alt="" /> */}
                 <div className='md:mr-8 mr-0'>
                     {user ? <button onClick={heandlLogOut} className="btn btn-primary-gradient">LogOut</button> : <Link to='/auth/login'><button className="btn btn-primary-gradient">Login</button></Link>}
                 </div>

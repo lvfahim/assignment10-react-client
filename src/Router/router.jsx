@@ -5,6 +5,12 @@ import Navbar from "../Componetn/Fiex/Navbar";
 import Auth from "../Root/Auth";
 import Login from "../Page/Login";
 import Register from "../Page/Register";
+import User from "../Page/User";
+import PrivetRouter from "../Provider/PrivetRouter";
+import EditUser from "../Page/EditUser";
+import Home from "../Componetn/Fiex/Home";
+import AboutUS from "../Componetn/About/AboutUS";
+import BuyCar from "../Componetn/Car/BuyCar";
 
 const router = createBrowserRouter([
   {
@@ -13,8 +19,24 @@ const router = createBrowserRouter([
     errorElement:<Error></Error>,
     children:[
         {
-            path:'/',
-            element:<Navbar></Navbar>
+          path:'/',
+          element:<Home></Home>
+        },
+        {
+          path:'/user',
+          element:<PrivetRouter><User></User></PrivetRouter>
+        },
+        {
+          path:'/editUser',
+          element:<EditUser></EditUser>
+        },
+        {
+          path:'/aboutUs',
+          element:<AboutUS></AboutUS>
+        },
+        {
+          path:'/buyCar',
+          element:<BuyCar></BuyCar>
         }
     ]
   },

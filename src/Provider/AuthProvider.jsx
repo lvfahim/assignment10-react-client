@@ -1,13 +1,13 @@
 import React, { createContext, useEffect, useState } from 'react';
 import app from '../FireBase/FireBase.congif';
-import { createUserWithEmailAndPassword, getAuth, onAuthStateChanged, sendPasswordResetEmail, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
-import { GoogleAuthProvider } from "firebase/auth";
+import { GoogleAuthProvider, createUserWithEmailAndPassword, getAuth, onAuthStateChanged, sendPasswordResetEmail, signInWithEmailAndPassword, signInWithPopup, signOut, updateProfile } from "firebase/auth";
 export const AuthContext = createContext()
 const googleProvider = new GoogleAuthProvider();
 const auth=getAuth(app)
 const AuthProvider = ({children}) => {
     const [user,setUser]=useState(null)
     const [loading,setLoading]=useState(true)
+    // console.log(user)
     const Google = ()=>{
         return signInWithPopup(auth,googleProvider)
     }
@@ -33,7 +33,7 @@ const AuthProvider = ({children}) => {
         });
         return()=>{
             unSub()
-        }
+        };
     },[])
     const info={
        Register,
@@ -46,9 +46,9 @@ const AuthProvider = ({children}) => {
        loading,
        ForgetPasssword
     }
-    return <AuthContext value={info}>
+    return <AuthContext.Provider value={info}>
         {children}
-    </AuthContext>
+    </AuthContext.Provider>
 };
 
 export default AuthProvider;

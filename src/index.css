@@ -8,7 +8,9 @@
 .btn-primary-gradient {
   @apply text-white border-none bg-gradient-to-r from-[#0046FF] to-[#799EFF];
 }
-
+a.active{
+  @apply bg-blue-900 text-white font-semibold 
+}
 * {
   font-family: "Roboto", sans-serif;
 }
