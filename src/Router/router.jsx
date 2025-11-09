@@ -11,6 +11,7 @@ import EditUser from "../Page/EditUser";
 import Home from "../Componetn/Fiex/Home";
 import AboutUS from "../Componetn/About/AboutUS";
 import BuyCar from "../Componetn/Car/BuyCar";
+import Blog from "../Componetn/Fiex/Blog";
 
 const router = createBrowserRouter([
   {
@@ -28,7 +29,7 @@ const router = createBrowserRouter([
         },
         {
           path:'/editUser',
-          element:<EditUser></EditUser>
+          element:<PrivetRouter><EditUser></EditUser></PrivetRouter>
         },
         {
           path:'/aboutUs',
@@ -37,6 +38,10 @@ const router = createBrowserRouter([
         {
           path:'/buyCar',
           element:<BuyCar></BuyCar>
+        },
+        {
+          path:'/blog',
+          element:<Blog></Blog>
         }
     ]
   },

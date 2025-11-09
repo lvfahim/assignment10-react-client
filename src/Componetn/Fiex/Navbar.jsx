@@ -24,7 +24,7 @@ const Navbar = () => {
             });
     }
     return (
-        <div className='w-11/12 mx-auto shadow bg-blue-200 mt-5 rounded-2xl'>
+        <div className='w-11/12 mx-auto shadow bg-blue-200 mt-7 rounded-2xl'>
             <div className="navbar justify-between">
                 <div className="navbar-start">
                     <div className="dropdown">

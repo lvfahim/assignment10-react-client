@@ -1,11 +1,15 @@
 import React from 'react';
 import Banar from './Banar';
+import ShowCar from './ShowCar';
 
 const Home = () => {
     return (
         <div className='w-11/12 md:h-10/12 mx-auto'>
-            <div className='w-9/12 mx-auto my-8'>
+            <div className='w-11/12 md:w-9/12 mx-auto my-14'>
                 <Banar></Banar>
+            </div>
+            <div className='w-11/12 mx-auto pt-20'>
+                <ShowCar></ShowCar>
             </div>
         </div>
     );

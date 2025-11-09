@@ -32,7 +32,7 @@ const User = () => {
 
 
                 <Link to='/editUser'>
-                    <button className="mt-6 btn  w-full hover:text-blue-500 transition-colors duration-300">
+                    <button className="mt-6 btn btn-soft btn-info w-full hover:text-white transition-colors duration-300">
                         Edit Profile
                     </button>
                 </Link>
