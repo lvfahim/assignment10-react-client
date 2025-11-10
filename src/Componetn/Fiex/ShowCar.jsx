@@ -7,7 +7,7 @@ const ShowCar = () => {
     return (
         <div className=''>
             <div className='mt-[100px]'>
-                <h1 className='text-center text-4xl font-semibold'>Like we have cars.</h1>
+                <h1 className='text-center text-4xl font-semibold'>Like we <span className='text-blue-500'>have cars</span></h1>
             </div>
             <div className='mt-6'>
                 <div className="carousel w-full h-[550px] mx-auto">

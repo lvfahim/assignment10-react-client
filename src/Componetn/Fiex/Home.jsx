@@ -3,6 +3,7 @@ import Banar from './Banar';
 import ShowCar from './ShowCar';
 import AboutUS from '../About/AboutUS';
 import OurServis from '../About/OurServis';
+import Experience from './Experience';
 
 
 const Home = () => {
@@ -17,6 +18,9 @@ const Home = () => {
             </div>
             <div>
                 <AboutUS></AboutUS>
+            </div>
+            <div>
+                <Experience></Experience>
             </div>
             <div>
                 <OurServis></OurServis>
