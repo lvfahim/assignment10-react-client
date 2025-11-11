@@ -15,7 +15,7 @@ const OurServis = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
 
-                {/* Card 1 */}
+                
                 <div className="p-8 bg-base-200 rounded-xl shadow-md hover:shadow-xl duration-300 text-center">
                     <FaCarSide className="text-5xl mx-auto text-blue-500 mb-4" />
                     <h3 className="text-xl font-semibold mb-2">Wide Vehicle Selection</h3>
@@ -24,7 +24,7 @@ const OurServis = () => {
                     </p>
                 </div>
 
-                {/* Card 2 */}
+              
                 <div className="p-8 bg-base-200 rounded-xl shadow-md hover:shadow-xl duration-300 text-center">
                     <FaWallet className="text-5xl mx-auto text-blue-500 mb-4" />
                     <h3 className="text-xl font-semibold mb-2">Affordable Pricing</h3>
@@ -33,7 +33,7 @@ const OurServis = () => {
                     </p>
                 </div>
 
-                {/* Card 3 */}
+                
                 <div className="p-8 bg-base-200 rounded-xl shadow-md hover:shadow-xl duration-300 text-center">
                     <FaHeadset className="text-5xl mx-auto text-blue-500 mb-4" />
                     <h3 className="text-xl font-semibold mb-2">24/7 Customer Support</h3>

@@ -45,6 +45,7 @@ const AddCar = () => {
 
     return (
         <div className='mt-16'>
+            <title>Add Car</title>
             <h1 className='text-3xl md:text-4xl font-bold text-center mb-10'>
                 Create <span className='text-blue-500'>A Car</span>
             </h1>

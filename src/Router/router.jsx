@@ -61,7 +61,7 @@ const router = createBrowserRouter([
         },
         {
           path:'/carDetails/:id',
-          element:<CarDetails></CarDetails>
+          element:<PrivetRouter><CarDetails></CarDetails></PrivetRouter>
         }
     ]
   },

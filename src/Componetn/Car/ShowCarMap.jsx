@@ -1,5 +1,7 @@
 import React from 'react';
 import { Link } from 'react-router';
+import { Tooltip } from "react-tooltip";
+import "react-tooltip/dist/react-tooltip.css";
 
 const ShowCarMap = ({ car }) => {
     console.log(car)
@@ -11,7 +13,9 @@ const ShowCarMap = ({ car }) => {
                 <p className="text-sm text-gray-600">Category : {car.category}</p>
                 <p className="text-lg font-semibold mt-2">৳ {car.price} / day</p>
                 <p className="text-sm mt-1 text-gray-500">{car.providerName}</p>
-                <Link to={`/carDetails/${car._id}`}> <button className='btn mt-2 w-full p-2 rounded-xl btn-primary-gradient'>View Details</button></Link>
+                <Link to={`/carDetails/${car._id}`}> <button data-tooltip-id="infoTip"
+        data-tooltip-content="Click Here" className='btn mt-2 w-full p-2 rounded-xl btn-primary-gradient'>View Details</button></Link>
+          <Tooltip id="infoTip" place="top" />
             </div>
         </div>
     );

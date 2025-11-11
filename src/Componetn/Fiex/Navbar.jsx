@@ -2,6 +2,8 @@ import React, { useContext } from 'react';
 import { Link, NavLink } from 'react-router';
 import { AuthContext } from '../../Provider/AuthProvider';
 import Img from '../../assets/user.png'
+import { Tooltip } from "react-tooltip";
+import "react-tooltip/dist/react-tooltip.css";
 
 
 const Navbar = () => {
@@ -15,7 +17,7 @@ const Navbar = () => {
         <li><NavLink to='/blog'>Blog</NavLink></li>
         <li><NavLink to='/ourServis'>Our Services</NavLink></li>
         <li><NavLink to='/user'>User</NavLink></li>
-        
+
     </>
     const heandlLogOut = () => {
         LogOut()
@@ -40,22 +42,26 @@ const Navbar = () => {
                             {Links}
                         </ul>
                     </div>
-                    <Link to='/'><h1 className="text-4xl font-bold ml-0 md:ml-8">
+                    <Link to='/'><h1
+                        data-tooltip-id="infoTip"
+                        data-tooltip-content="This is my Webside Name"
+                        className="text-4xl font-bold ml-0 md:ml-8">
                         M<span className="text-blue-500">o</span>t
                         <span className="text-blue-500">o</span>ri
                         <span className="text-blue-500">o</span>
-                    </h1></Link> 
+                    </h1></Link>
+                      <Tooltip id="infoTip" place="top" />
                 </div>
                 <div className=" navbar-end hidden lg:flex">
                     <ul className="menu menu-horizontal px-1 ">
                         {Links}
                     </ul>
                 </div>
-                <img className='w-12 rounded-full mx-2' src={`${user ? user.photoURL:Img}`} alt="" />
+                <img className='w-12 rounded-full mx-2' src={`${user ? user.photoURL : Img}`} alt="" />
                 <div className='md:mr-8 mr-0'>
-                    {user ? 
-                    <button onClick={heandlLogOut} className="btn btn-primary-gradient">LogOut</button> :
-                     <Link to='/auth/login'><button className="btn btn-primary-gradient">Login</button></Link>}
+                    {user ?
+                        <button onClick={heandlLogOut} className="btn btn-primary-gradient">LogOut</button> :
+                        <Link to='/auth/login'><button className="btn btn-primary-gradient">Login</button></Link>}
                 </div>
             </div>
         </div>

@@ -12,59 +12,58 @@ const AboutUS = () => {
                 so that your journey remains stress-free and enjoyable.
             </p>
 
-            {/* Cards */}
+           
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-7">
 
-                {/* Card 1 */}
+             
                 <div className="p-6 bg-base-200 rounded-xl shadow hover:shadow-lg duration-300 text-center">
                     <div className="text-4xl mb-3">🚗</div>
                     <h4 className="text-xl font-semibold mb-2">Easy Booking</h4>
                     <p className="text-gray-600 text-sm">Book your desired vehicle in just a few simple steps.</p>
                 </div>
 
-                {/* Card 2 */}
+               
                 <div className="p-6 bg-base-200 rounded-xl shadow hover:shadow-lg duration-300 text-center">
                     <div className="text-4xl mb-3">💰</div>
                     <h4 className="text-xl font-semibold mb-2">Affordable Rates</h4>
                     <p className="text-gray-600 text-sm">We provide competitive pricing that fits your budget.</p>
                 </div>
 
-                {/* Card 3 */}
+                
                 <div className="p-6 bg-base-200 rounded-xl shadow hover:shadow-lg duration-300 text-center">
                     <div className="text-4xl mb-3">🛡️</div>
                     <h4 className="text-xl font-semibold mb-2">Trusted Providers</h4>
                     <p className="text-gray-600 text-sm">All vehicles are listed by verified and reliable owners.</p>
                 </div>
 
-                {/* Card 4 */}
                 <div className="p-6 bg-base-200 rounded-xl shadow hover:shadow-lg duration-300 text-center">
                     <div className="text-4xl mb-3">📞</div>
                     <h4 className="text-xl font-semibold mb-2">24/7 Support</h4>
                     <p className="text-gray-600 text-sm">Our support team is always ready to assist you.</p>
                 </div>
 
-                {/* Card 5 */}
+               
                 <div className="p-6 bg-base-200 rounded-xl shadow hover:shadow-lg duration-300 text-center">
                     <div className="text-4xl mb-3">🧼</div>
                     <h4 className="text-xl font-semibold mb-2">Clean & Well-Maintained Cars</h4>
                     <p className="text-gray-600 text-sm">Every vehicle goes through regular inspection & cleaning.</p>
                 </div>
 
-                {/* Card 6 */}
+              
                 <div className="p-6 bg-base-200 rounded-xl shadow hover:shadow-lg duration-300 text-center">
                     <div className="text-4xl mb-3">⚡</div>
                     <h4 className="text-xl font-semibold mb-2">Instant Confirmation</h4>
                     <p className="text-gray-600 text-sm">No waiting — get instant rental confirmation.</p>
                 </div>
 
-                {/* Card 7 */}
+             
                 <div className="p-6 bg-base-200 rounded-xl shadow hover:shadow-lg duration-300 text-center">
                     <div className="text-4xl mb-3">🌍</div>
                     <h4 className="text-xl font-semibold mb-2">Nationwide Availability</h4>
                     <p className="text-gray-600 text-sm">Rent vehicles in multiple cities across the country.</p>
                 </div>
 
-                {/* Card 8 */}
+              
                 <div className="p-6 bg-base-200 rounded-xl shadow hover:shadow-lg duration-300 text-center">
                     <div className="text-4xl mb-3">🔐</div>
                     <h4 className="text-xl font-semibold mb-2">Secure Payments</h4>

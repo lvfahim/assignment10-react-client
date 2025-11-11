@@ -17,7 +17,7 @@ const Blog = () => {
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
 
-                {/* Blog Card 1 */}
+              
                 <div className="bg-base-200 p-5 rounded-xl shadow-md hover:shadow-lg duration-300">
                     <img
                         className="rounded-lg mb-4 w-full"
@@ -31,7 +31,7 @@ const Blog = () => {
                     <button onClick={readme} className="btn btn-primary btn-sm">Read More</button>
                 </div>
 
-                {/* Blog Card 2 */}
+              
                 <div className="bg-base-200 p-5 rounded-xl shadow-md hover:shadow-lg duration-300">
                     <img
                         className="rounded-lg mb-4 w-full"
@@ -45,7 +45,7 @@ const Blog = () => {
                     <button onClick={readme} className="btn btn-primary btn-sm">Read More</button>
                 </div>
 
-                {/* Blog Card 3 */}
+               
                 <div className="bg-base-200 p-5 rounded-xl shadow-md hover:shadow-lg duration-300">
                     <img
                         className="rounded-lg mb-4 w-full "
