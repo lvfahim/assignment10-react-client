@@ -14,6 +14,8 @@ import BuyCar from "../Componetn/Car/BuyCar";
 import Blog from "../Componetn/Fiex/Blog";
 import OurServis from "../Componetn/About/OurServis";
 import AddCar from "../Page/AddCar";
+import BrowseCar from "../Page/BrowseCar";
+import CarDetails from "../Componetn/Car/CarDetails";
 
 const router = createBrowserRouter([
   {
@@ -52,6 +54,14 @@ const router = createBrowserRouter([
         {
           path:'/abbCar',
           element:<PrivetRouter><AddCar></AddCar></PrivetRouter>
+        },
+        {
+          path:'/browseCar',
+          element:<BrowseCar></BrowseCar>
+        },
+        {
+          path:'/carDetails/:id',
+          element:<CarDetails></CarDetails>
         }
     ]
   },

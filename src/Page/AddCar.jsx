@@ -16,7 +16,7 @@ const AddCar = () => {
         const price = form.price.value;
         const location = form.location.value;
         const image = form.image.value;
-        console.log(name,description,category,price,location,image)
+        // console.log(name,description,category,price,location,image)
 
         const newCar = {
             name,
@@ -49,7 +49,7 @@ const AddCar = () => {
                 Create <span className='text-blue-500'>A Car</span>
             </h1>
 
-            <div className="hero">
+            <div className="hero pb-14">
                 <div className="card bg-base-100 w-full max-w-lg shadow-2xl">
                     <div className="card-body">
                         <h1 className="text-2xl font-bold mb-2">Fill Out The Form</h1>
@@ -60,7 +60,7 @@ const AddCar = () => {
                             <input type="text" name='name' className="input" required placeholder="Car Name" /><br />
 
                             <label className="label">Description :</label><br />
-                            <textarea name="description" className="textarea" placeholder="Write about the car features" required /> <br />
+                            <textarea name="description" className="textarea" placeholder="Write about the car features in 150 word" required /> <br />
 
                             <label className="label">Category:</label><br />
                             <select name="category" className="select" required>
