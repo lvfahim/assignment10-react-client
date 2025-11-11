@@ -12,7 +12,7 @@ const Blog = () => {
         <div className="w-11/12 md:w-10/12 mx-auto py-14">
             <title>Blog</title>
             <h2 className="text-3xl md:text-4xl font-bold text-center mb-10">
-                Latest Blog & News
+                Latest <span className='text-blue-500'>Blog & News</span>
             </h2>
 
             <div className="grid grid-cols-1 md:grid-cols-3 gap-8">

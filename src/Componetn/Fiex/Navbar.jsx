@@ -10,6 +10,7 @@ const Navbar = () => {
         <li><NavLink to='/'>Home</NavLink></li>
         <li><NavLink to='/aboutUs'>About Us</NavLink></li>
         <li><NavLink to='/buyCar'>My Bookings</NavLink></li>
+        <li><NavLink to='/abbCar'>Add Car</NavLink></li>
         <li><NavLink to='/blog'>Blog</NavLink></li>
         <li><NavLink to='/ourServis'>Our Services</NavLink></li>
         <li><NavLink to='/user'>User</NavLink></li>

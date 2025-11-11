@@ -13,6 +13,7 @@ import AboutUS from "../Componetn/About/AboutUS";
 import BuyCar from "../Componetn/Car/BuyCar";
 import Blog from "../Componetn/Fiex/Blog";
 import OurServis from "../Componetn/About/OurServis";
+import AddCar from "../Page/AddCar";
 
 const router = createBrowserRouter([
   {
@@ -47,6 +48,10 @@ const router = createBrowserRouter([
         {
           path:'/ourServis',
           element:<OurServis></OurServis>
+        },
+        {
+          path:'/abbCar',
+          element:<PrivetRouter><AddCar></AddCar></PrivetRouter>
         }
     ]
   },
