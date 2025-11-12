@@ -16,6 +16,7 @@ import OurServis from "../Componetn/About/OurServis";
 import AddCar from "../Page/AddCar";
 import BrowseCar from "../Page/BrowseCar";
 import CarDetails from "../Componetn/Car/CarDetails";
+import MyListIng from "../Componetn/Car/MyListIng";
 
 const router = createBrowserRouter([
   {
@@ -62,6 +63,10 @@ const router = createBrowserRouter([
         {
           path:'/carDetails/:id',
           element:<PrivetRouter><CarDetails></CarDetails></PrivetRouter>
+        },
+        {
+          path:'/myListing',
+          element:<PrivetRouter><MyListIng></MyListIng></PrivetRouter>
         }
     ]
   },

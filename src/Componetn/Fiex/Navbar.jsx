@@ -13,6 +13,7 @@ const Navbar = () => {
         <li><NavLink to='/aboutUs'>About Us</NavLink></li>
         <li><NavLink to='/buyCar'>My Bookings</NavLink></li>
         <li><NavLink to='/browseCar'>Browse Cars</NavLink></li>
+        <li><NavLink to='/myListing'>My Listings</NavLink></li>
         <li><NavLink to='/abbCar'>Add Car</NavLink></li>
         <li><NavLink to='/blog'>Blog</NavLink></li>
         <li><NavLink to='/ourServis'>Our Services</NavLink></li>

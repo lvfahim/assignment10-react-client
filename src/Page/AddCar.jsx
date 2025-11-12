@@ -26,7 +26,8 @@ const AddCar = () => {
             location,
             image,
             providerName: user?.displayName,
-            providerEmail: user?.email
+            providerEmail: user?.email,
+            status:'available'
         };
 
         fetch("http://localhost:5000/carData", {
