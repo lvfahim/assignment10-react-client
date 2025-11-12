@@ -1,10 +1,12 @@
-import React, { useContext, useEffect, useState } from 'react';
+import React, { useContext, useEffect, useRef, useState } from 'react';
 import { AuthContext } from '../../Provider/AuthProvider';
 import Swal from 'sweetalert2';
 
 const MyListIng = () => {
     const [myData, setMyData] = useState([]);
+    const [selectedCar, setSelectedCar] = useState(null);
     const { user } = useContext(AuthContext);
+    const modalRef = useRef();
 
     useEffect(() => {
         if (user?.email) {
@@ -14,6 +16,7 @@ const MyListIng = () => {
         }
     }, [user]);
 
+    // 🧹 DELETE
     const deleteFrom = (_id) => {
         Swal.fire({
             title: "Are you sure?",
@@ -24,27 +27,53 @@ const MyListIng = () => {
             cancelButtonColor: "#d33",
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
-
             if (result.isConfirmed) {
                 fetch(`http://localhost:5000/carData/${_id}`, {
-                    method: "DELETE"
+                    method: "DELETE",
                 })
                     .then(res => res.json())
                     .then(data => {
                         if (data.deletedCount > 0) {
-                            Swal.fire({
-                                title: "Deleted!",
-                                text: "Your file has been deleted.",
-                                icon: "success"
-                            });
-                            // update state
+                            Swal.fire("Deleted!", "Your file has been deleted.", "success");
                             setMyData(myData.filter(item => item._id !== _id));
                         }
                     });
             }
         });
+    };
 
-    }
+    // UPDATE button — open modal
+    const updateFrom = (car) => {
+        setSelectedCar(car);
+        modalRef.current.showModal();
+    };
+
+    // ✅ PATCH request on form submit
+    const handleUpdateSubmit = (e) => {
+        e.preventDefault();
+        const form = e.target;
+        const updatedCar = {
+            name: form.name.value,
+            category: form.category.value,
+            price: form.price.value,
+        };
+
+        fetch(`http://localhost:5000/carData/${selectedCar._id}`, {
+            method: "PATCH",
+            headers: { "Content-Type": "application/json" },
+            body: JSON.stringify(updatedCar),
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.modifiedCount > 0) {
+                    Swal.fire("Updated!", "Car details updated successfully.", "success");
+                    // update local state
+                    setMyData(prev =>  prev.map(item => item._id === selectedCar._id ? { ...item, ...updatedCar } : item )
+                    );
+                    modalRef.current.close();
+                }
+            });
+    };
 
     return (
         <div className="overflow-x-auto p-6 w-9/12 mx-auto">
@@ -82,10 +111,16 @@ const MyListIng = () => {
                                     </span>
                                 </td>
                                 <td className='flex gap-4'>
-                                    <button className="btn btn-sm btn-outline btn-info mr-2">
+                                    <button
+                                        onClick={() => updateFrom(car)}
+                                        className="btn btn-sm btn-outline btn-info"
+                                    >
                                         Update
                                     </button>
-                                    <button onClick={() => { deleteFrom(car._id) }} className="btn btn-sm btn-outline btn-error">
+                                    <button
+                                        onClick={() => deleteFrom(car._id)}
+                                        className="btn btn-sm btn-outline btn-error"
+                                    >
                                         Delete
                                     </button>
                                 </td>
@@ -100,6 +135,54 @@ const MyListIng = () => {
                     )}
                 </tbody>
             </table>
+
+            {/* 🧩 UPDATE MODAL */}
+            <dialog ref={modalRef} className="modal modal-bottom sm:modal-middle">
+                <div className="modal-box">
+                    <h3 className="font-bold text-lg mb-4">Update Car Info</h3>
+                    {selectedCar && (
+                        <form onSubmit={handleUpdateSubmit} className="space-y-3">
+                            <input
+                                type="text"
+                                name="name"
+                                defaultValue={selectedCar.name}
+                                className="input input-bordered w-full"
+                                placeholder="Car Name"
+                                required
+                            />
+                            <input
+                                type="text"
+                                name="category"
+                                defaultValue={selectedCar.category}
+                                className="input input-bordered w-full"
+                                placeholder="Category"
+                                required
+                            />
+                            <input
+                                type="number"
+                                name="price"
+                                defaultValue={selectedCar.price}
+                                className="input input-bordered w-full"
+                                placeholder="Rent Price"
+                                required
+                            />
+
+                            <div className="modal-action">
+                                <button type="submit" className="btn btn-primary">
+                                    Save Changes
+                                </button>
+                                <button
+                                    type="button"
+                                    className="btn"
+                                    onClick={() => modalRef.current.close()}
+                                >
+                                    Close
+                                </button>
+                            </div>
+                        </form>
+                    )}
+                </div>
+            </dialog>
         </div>
     );
 };

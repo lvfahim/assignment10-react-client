@@ -11,7 +11,7 @@ const CarDetails = () => {
   const [carData, setCarData] = useState([])
   const [refetch, setRefetch] = useState(0)
 
-  // const [isSelect, setIsSelect] = useState(false)
+
 
   useEffect(() => {
     fetch(`http://localhost:5000/carDetails/${id}`)
