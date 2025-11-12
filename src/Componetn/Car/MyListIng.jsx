@@ -25,23 +25,23 @@ const MyListIng = () => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
 
-            // if (result.isConfirmed) {
-            //     fetch(`http://localhost:5000/carData/${_id}`, {
-            //         method: "DELETE"
-            //     })
-            //         .then(res => res.json())
-            //         .then(data => {
-            //             if (data.deletedCount > 0) {
-            //                 Swal.fire({
-            //                     title: "Deleted!",
-            //                     text: "Your file has been deleted.",
-            //                     icon: "success"
-            //                 });
-            //                 // update state
-            //                 setMyData(myData.filter(item => item._id !== _id));
-            //             }
-            //         });
-            // }
+            if (result.isConfirmed) {
+                fetch(`http://localhost:5000/carData/${_id}`, {
+                    method: "DELETE"
+                })
+                    .then(res => res.json())
+                    .then(data => {
+                        if (data.deletedCount > 0) {
+                            Swal.fire({
+                                title: "Deleted!",
+                                text: "Your file has been deleted.",
+                                icon: "success"
+                            });
+                            // update state
+                            setMyData(myData.filter(item => item._id !== _id));
+                        }
+                    });
+            }
         });
 
     }

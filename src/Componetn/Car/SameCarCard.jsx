@@ -8,7 +8,7 @@ const SameCarCard = () => {
             .then(res => res.json())
             .then(data => setCarData(data))
     }, [setCarData])
-    // console.log(carData)
+
     return (
         <div className='mt-14'>
             <h1 className="text-3xl md:text-4xl font-bold text-center mb-10">Some <span className='text-blue-500'>Expensive Cars</span></h1>

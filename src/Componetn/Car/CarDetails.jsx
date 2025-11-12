@@ -63,7 +63,7 @@ const CarDetails = () => {
             toast.success("Car Booked successfully!");
             setRefetch(refetch + 1)
           }
-          // setIsSelect(true)
+
         });
 
     }
