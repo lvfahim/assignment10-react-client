@@ -28,7 +28,7 @@ const BrowseCar = () => {
                 />
             </div>
             <h1 className="text-3xl md:text-4xl font-bold text-center mb-10">Here Are All  <span className='text-blue-500'>The Cars</span></h1>
-            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 m-4'>
+            <div className='grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 m-4 place-items-center'>
                 {
                     // carData.map(car => <ShowCarMap key={car._id} car={car}></ShowCarMap>)
                     fillterCar.length > 0 ?
