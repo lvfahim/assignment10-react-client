@@ -10,7 +10,7 @@ const MyListIng = () => {
 
     useEffect(() => {
         if (user?.email) {
-            fetch(`http://localhost:5000/myCarList?email=${user.email}`,{
+            fetch(`https://assigment-10-server-gamma.vercel.app/myCarList?email=${user.email}`,{
                 headers:{
                     authorization:`Bearer ${user.accessToken}`
                 }
@@ -32,7 +32,7 @@ const MyListIng = () => {
             confirmButtonText: "Yes, delete it!"
         }).then((result) => {
             if (result.isConfirmed) {
-                fetch(`http://localhost:5000/carData/${_id}`, {
+                fetch(`https://assigment-10-server-gamma.vercel.app/carData/${_id}`, {
                     method: "DELETE",
                 })
                     .then(res => res.json())
@@ -62,7 +62,7 @@ const MyListIng = () => {
             price: form.price.value,
         };
 
-        fetch(`http://localhost:5000/carData/${selectedCar._id}`, {
+        fetch(`https://assigment-10-server-gamma.vercel.app/carData/${selectedCar._id}`, {
             method: "PATCH",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(updatedCar),

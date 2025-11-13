@@ -11,20 +11,24 @@ const CarDetails = () => {
   const { user } = useContext(AuthContext)
   const [carData, setCarData] = useState([])
   const [refetch, setRefetch] = useState(0)
-  
+
 
 
   useEffect(() => {
-    fetch(`http://localhost:5000/carDetails/${id}`)
+    fetch(`https://assigment-10-server-gamma.vercel.app/carDetails/${id}`)
       .then(res => res.json())
       .then(data => setCar(data))
       .catch(err => console.error(err));
   }, [id]);
   useEffect(() => {
-    fetch("http://localhost:5000/myBookingList")
-    .then(res => res.json())
-    .then(data => setCarData(data))
-  }, [refetch,id])
+    fetch("https://assigment-10-server-gamma.vercel.app/myBookingList", {
+      headers: {
+        authorization: `Bearer ${user.accessToken}`
+      }
+    })
+      .then(res => res.json())
+      .then(data => setCarData(data))
+  }, [refetch, id,user])
   const exist = carData.find(car => car.carId === id)
   console.log(carData)
 
@@ -53,7 +57,7 @@ const CarDetails = () => {
     const { email } = user || {}
     const newCard = { name, image, category, price, location, email, carId: _id }
     if (user?.email) {
-      fetch("http://localhost:5000/carBooking", {
+      fetch("https://assigment-10-server-gamma.vercel.app/carBooking", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(newCard)

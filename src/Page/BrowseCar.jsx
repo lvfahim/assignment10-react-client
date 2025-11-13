@@ -8,7 +8,7 @@ const BrowseCar = () => {
         car.name.toLowerCase().includes(searchText.toLowerCase())
     )
     useEffect(() => {
-        fetch("http://localhost:5000/carDetailsForall")
+        fetch("https://assigment-10-server-gamma.vercel.app/carDetailsForall")
             .then(res => res.json())
             .then(data => setCarData(data))
     }, [setCarData])
