@@ -36,4 +36,4 @@ A modern **Car Rental web application** built with **React 19**, **Vite**, **Tai
 Client-side GitHub Repository => https://github.com/lvfahim/assignment10-react-client.git
 Server-side GitHub Repository => https://github.com/lvfahim/assignment10-react-server.git
 Live Website Link Client-side => startling-tiramisu-00ff96.netlify.app
-Live Website Link Server-side => https://assigment-10-server-gamma.vercel.app/
+Live Website Link Server-side => assigment-10-server-gamma.vercel.app
