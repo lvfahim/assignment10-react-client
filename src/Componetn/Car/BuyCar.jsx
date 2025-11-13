@@ -14,7 +14,7 @@ const BuyCar = () => {
     }, [user]);
 
     return (
-        <div className="overflow-x-auto p-6 w-9/12 mx-auto">
+        <div className="overflow-x-auto p-6 w-9/12 mx-auto h-screen">
             <h1 className="text-2xl font-bold mb-4 w-9/12 mx-auto">
                 My Booked Cars ({myData.length})
             </h1>

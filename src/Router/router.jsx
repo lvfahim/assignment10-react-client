@@ -42,7 +42,7 @@ const router = createBrowserRouter([
         },
         {
           path:'/buyCar',
-          element:<BuyCar></BuyCar>
+          element:<PrivetRouter><BuyCar></BuyCar></PrivetRouter>
         },
         {
           path:'/blog',

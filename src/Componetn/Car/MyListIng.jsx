@@ -76,7 +76,7 @@ const MyListIng = () => {
     };
 
     return (
-        <div className="overflow-x-auto p-6 w-9/12 mx-auto">
+        <div className="overflow-x-auto p-6 w-9/12 mx-auto h-screen">
             <h1 className="text-2xl font-bold mb-4 w-9/12 mx-auto">
                 My Car List ({myData.length})
             </h1>
@@ -118,7 +118,7 @@ const MyListIng = () => {
                                         Update
                                     </button>
                                     <button
-                                        onClick={() => deleteFrom(car._id)}
+                                        onClick={() => {deleteFrom(car._id)}}
                                         className="btn btn-sm btn-outline btn-error"
                                     >
                                         Delete
