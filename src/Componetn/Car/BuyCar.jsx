@@ -7,7 +7,11 @@ const BuyCar = () => {
 
     useEffect(() => {
         if (user?.email) {
-            fetch(`http://localhost:5000/myBookingList?email=${user.email}`)
+            fetch(`https://assigment-10-server-gamma.vercel.app/myBookingList?email=${user.email}`, {
+                headers: {
+                    authorization: `Bearer ${user.accessToken}`
+                }
+            })
                 .then(res => res.json())
                 .then(data => setMyData(data));
         }
@@ -26,7 +30,7 @@ const BuyCar = () => {
                         <th>Car Name</th>
                         <th>Category</th>
                         <th>Rent Price</th>
-                        <th>Status</th>
+                        <th>location</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -37,7 +41,7 @@ const BuyCar = () => {
                                 <td>{car.name}</td>
                                 <td>{car.category}</td>
                                 <td>${car.price}</td>
-                                <td><div className='bg-blue-500 w-20 rounded-2xl text-white p-2'>{car.status}</div></td>
+                                <td>{car.location}</td>
                             </tr>
                         ))
                     ) : (

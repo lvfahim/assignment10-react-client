@@ -4,23 +4,24 @@ import Loading from '../../Loading/Loading';
 import { toast, ToastContainer } from 'react-toastify';
 import { AuthContext } from '../../Provider/AuthProvider';
 
+
 const CarDetails = () => {
   const { id } = useParams();
   const [car, setCar] = useState(null);
   const { user } = useContext(AuthContext)
   const [carData, setCarData] = useState([])
   const [refetch, setRefetch] = useState(0)
-
+  // const [available,setAvailale]=useState(false)
 
 
   useEffect(() => {
-    fetch(`http://localhost:5000/carDetails/${id}`)
+    fetch(`https://assigment-10-server-gamma.vercel.app/carDetails/${id}`)
       .then(res => res.json())
       .then(data => setCar(data))
       .catch(err => console.error(err));
   }, [id]);
   useEffect(() => {
-    fetch("http://localhost:5000/myBookingList")
+    fetch("https://assigment-10-server-gamma.vercel.app/myBookingList")
       .then(res => res.json())
       .then(data => setCarData(data))
   }, [refetch,id])
@@ -41,7 +42,6 @@ const CarDetails = () => {
     category,
     price,
     location,
-    status,
     providerName,
     providerEmail,
     _id
@@ -50,9 +50,9 @@ const CarDetails = () => {
 
   const heandleBook = () => {
     const { email } = user || {}
-    const newCard = { name, image, category, price, status, email ,carId:_id}
+    const newCard = { name, image, category, price, location, email ,carId:_id}
     if (user?.email) {
-      fetch("http://localhost:5000/carBooking", {
+      fetch("https://assigment-10-server-gamma.vercel.app/carBooking", {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify(newCard)
@@ -67,6 +67,7 @@ const CarDetails = () => {
         });
 
     }
+    // setAvailale(true)
   }
 
 
@@ -85,13 +86,7 @@ const CarDetails = () => {
             <p><strong>Category:</strong> {category}</p>
             <p><strong>Rent Price:</strong> ${price}/day</p>
             <p><strong>Location:</strong> {location}</p>
-            <p><strong>Status:</strong>
-              <span
-                className={`${status === 'available' ? 'bg-blue-500 p-2 rounded-2xl text-white' : 'bg-red-500 p-2 rounded-2xl text-white'} ml-2`}
-              >
-                {status}
-              </span>
-            </p>
+            <p><strong>Status: {exist ? <p className='bg-red-500 text-white p-2 rounded-2xl w-20'>Unavailale</p> : <p className='bg-blue-500 text-white p-2 rounded-2xl w-20 text-center'>Availale</p>}</strong> </p>
           </div>
 
           <div className="mt-6 bg-gray-100 p-4 rounded-lg">
@@ -101,7 +96,7 @@ const CarDetails = () => {
           </div>
 
           <div className="card-actions mt-6">
-            <button onClick={heandleBook} disabled={exist} className={`${exist?`bg-black text-white w-full btn `:`btn btn-primary-gradient text-white w-full`}`}> Book Now </button>
+            <button onClick={heandleBook} disabled={exist} className={`${exist?`bg-black text-white w-full btn `:`btn btn-primary-gradient text-white w-full`}`}> {exist ? <p>It's Already Booked</p> : <p>Book Now</p>} </button>
           </div>
           <ToastContainer />
         </div>
