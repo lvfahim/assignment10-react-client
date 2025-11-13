@@ -12,7 +12,6 @@ const ShowCarMap = ({ car }) => {
                 <p className="text-sm text-gray-600">Category : {car.category}</p>
                 <p className="text-lg font-semibold mt-2">৳ {car.price} / day</p>
                 <p className="text-sm mt-1 text-gray-500">{car.providerName}</p>
-                <p className="text-sm mt-1 text-gray-500">{car.status}</p>
                 <Link to={`/carDetails/${car._id}`}> <button data-tooltip-id="infoTip"
         data-tooltip-content="Click Here" className='btn mt-2 w-full p-2 rounded-xl btn-primary-gradient'>View Details</button></Link>
           <Tooltip id="infoTip" place="top" />

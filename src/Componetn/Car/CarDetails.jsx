@@ -30,7 +30,7 @@ const CarDetails = () => {
       .then(data => setCarData(data))
   }, [refetch, id,user])
   const exist = carData.find(car => car.carId === id)
-  console.log(carData)
+
 
   if (!car) {
     return (
@@ -47,6 +47,7 @@ const CarDetails = () => {
     category,
     price,
     location,
+    status,
     providerName,
     providerEmail,
     _id
@@ -59,7 +60,10 @@ const CarDetails = () => {
     if (user?.email) {
       fetch("https://assigment-10-server-gamma.vercel.app/carBooking", {
         method: "POST",
-        headers: { "Content-Type": "application/json" },
+        headers: {
+           "Content-Type": "application/json",
+           authorization: `Bearer ${user.accessToken}`
+           },
         body: JSON.stringify(newCard)
       })
         .then(res => res.json())
@@ -92,7 +96,7 @@ const CarDetails = () => {
             <p><strong>Location:</strong> {location}</p>
             <div>
               <strong>Status: </strong>
-              {exist
+              {status==='unavialile'
                 ? <span className="bg-red-500 text-white p-2 rounded-2xl inline-block w-20 text-center">Unavailable</span>
                 : <span className="bg-blue-500 text-white p-2 rounded-2xl inline-block w-20 text-center">Available</span>
               }

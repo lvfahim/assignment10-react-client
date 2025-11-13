@@ -23,15 +23,15 @@ A modern **Car Rental web application** built with **React 19**, **Vite**, **Tai
 
 ## 📁 Project Structure
 ## MY COMPONETN
-1.Home
-2.About US
-3.My Booking
-4.Browse Car 
-5.My Listing
-6.Add Car
-7.Blog
-8.Our Servis
-9.Usr
+- **Home**
+- **About US**
+- **My Booking**
+- **Browse Car**
+- **My Listing**
+- **Add Car**
+- **Blog**
+- **Our Servis**
+- **Usr**
 
 Client-side GitHub Repository => https://github.com/lvfahim/assignment10-react-client.git
 Server-side GitHub Repository => https://github.com/lvfahim/assignment10-react-server.git

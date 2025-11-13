@@ -16,7 +16,7 @@ const AddCar = () => {
         const price = form.price.value;
         const location = form.location.value;
         const image = form.image.value;
-        // console.log(name,description,category,price,location,image)
+
 
         const newCar = {
             name,

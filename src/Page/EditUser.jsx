@@ -12,7 +12,7 @@ const EditUser = () => {
         e.preventDefault();
         const name=e.target.name.value;
         const photo=e.target.photo.value;
-        // console.log('cliked',name,photo,user)
+       
         UpData({ displayName: name, photoURL: photo})
         .then(()=>{
             setUser({...user,displayName: name, photoURL: photo})
