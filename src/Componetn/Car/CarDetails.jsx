@@ -55,7 +55,7 @@ const CarDetails = () => {
 
   const heandleBook = () => {
     const { email } = user || {}
-    const newCard = { name, image, category, price, location, email, carId: _id }
+    const newCard = { name, image, category, price, location, email, carId: _id ,providerName}
     if (user?.email) {
       fetch("https://assigment-10-server-gamma.vercel.app/carBooking", {
         method: "POST",

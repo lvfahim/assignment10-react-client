@@ -21,7 +21,7 @@ const Login = () => {
             .then(result => {
                 console.log(result)
                 Swal.fire({
-                    title: "Register SusseccFully",
+                    title: "Login SusseccFully",
                     icon: "success",
                     draggable: true
                 });
@@ -58,7 +58,7 @@ const Login = () => {
                 const user = userCredential.user;
                 console.log(user)
                 Swal.fire({
-                    title: "Register SusseccFully",
+                    title: "Login SusseccFully",
                     icon: "success",
                     draggable: true
                 });

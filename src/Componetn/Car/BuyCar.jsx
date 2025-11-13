@@ -17,6 +17,14 @@ const BuyCar = () => {
         }
     }, [user]);
 
+    if (!myData) {
+        return (
+            <div className="flex justify-center items-center h-screen">
+                <Loading></Loading>
+            </div>
+        );
+    }
+
     return (
         <div className="overflow-x-auto p-6 w-9/12 mx-auto h-screen">
             <h1 className="text-2xl font-bold mb-4 w-9/12 mx-auto">
@@ -31,6 +39,7 @@ const BuyCar = () => {
                         <th>Category</th>
                         <th>Rent Price</th>
                         <th>location</th>
+                        <th>providerName</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -42,6 +51,7 @@ const BuyCar = () => {
                                 <td>{car.category}</td>
                                 <td>${car.price}</td>
                                 <td>{car.location}</td>
+                                <td>{car.providerName}</td>
                             </tr>
                         ))
                     ) : (

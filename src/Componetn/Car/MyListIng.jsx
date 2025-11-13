@@ -51,7 +51,13 @@ const MyListIng = () => {
         setSelectedCar(car);
         modalRef.current.showModal();
     };
-
+     if (!myData) {
+        return (
+            <div className="flex justify-center items-center h-screen">
+                <Loading></Loading>
+            </div>
+        );
+    }
     //  PATCH request on form submit
     const handleUpdateSubmit = (e) => {
         e.preventDefault();

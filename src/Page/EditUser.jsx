@@ -29,9 +29,9 @@ const EditUser = () => {
                     <form onSubmit={heandleForm}>
                         <fieldset className="fieldset">
                             <label className="label">Name</label>
-                            <input type="text" className="input" placeholder="Name" name='name'/>
+                            <input type="text" className="input" placeholder="Name" name='name' required/>
                             <label className="label">Photo URL</label>
-                            <input type="text" className="input" placeholder="Photo URL" name='photo' />
+                            <input type="text" className="input" placeholder="Photo URL" name='photo'required />
                             <div className='flex justify-between'>
                                 <button className="btn btn-neutral mt-4 w-1/2 bg-blue-500 border-none">Update Profile</button>
                                 <Link to='/user'><button className="btn btn-neutral mt-4 w-[150px] px-4">Go Profile</button></Link>
