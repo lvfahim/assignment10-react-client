@@ -30,7 +30,7 @@ const AddCar = () => {
             status:'available'
         };
 
-        fetch("https://assigment-10-server-gamma.vercel.app/carData", {
+        fetch("http://localhost:5000/carData", {
             method: "POST",
             headers: { "Content-Type": "application/json" },
             body: JSON.stringify(newCar)

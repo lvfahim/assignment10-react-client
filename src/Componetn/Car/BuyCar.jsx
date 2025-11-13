@@ -7,7 +7,7 @@ const BuyCar = () => {
 
     useEffect(() => {
         if (user?.email) {
-            fetch(`https://assigment-10-server-gamma.vercel.app/myBookingList?email=${user.email}`, {
+            fetch(`http://localhost:5000/myBookingList?email=${user.email}`, {
                 headers: {
                     authorization: `Bearer ${user.accessToken}`
                 }

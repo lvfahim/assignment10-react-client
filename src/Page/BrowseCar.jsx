@@ -8,7 +8,7 @@ const BrowseCar = () => {
         car.name.toLowerCase().includes(searchText.toLowerCase())
     )
     useEffect(() => {
-        fetch("https://assigment-10-server-gamma.vercel.app/carDetailsForall")
+        fetch("http://localhost:5000/carDetailsForall")
             .then(res => res.json())
             .then(data => setCarData(data))
     }, [setCarData])
@@ -32,7 +32,7 @@ const BrowseCar = () => {
                 {
                     // carData.map(car => <ShowCarMap key={car._id} car={car}></ShowCarMap>)
                     fillterCar.length > 0 ?
-                    fillterCar.map(car => <ShowCarMap key={car._id} car={car}></ShowCarMap>) :
+                    fillterCar?.map(car => <ShowCarMap key={car._id} car={car}></ShowCarMap>) :
                     <p className="text-center col-span-full text-gray-500">No Cars found</p>
                 }
             </div>

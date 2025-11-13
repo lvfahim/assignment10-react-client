@@ -4,7 +4,7 @@ import ShowCarMap from './ShowCarMap';
 const SameCarCard = () => {
     const [carData, setCarData] = useState([])
     useEffect(() => {
-        fetch("https://assigment-10-server-gamma.vercel.app/carDetails")
+        fetch("http://localhost:5000/carDetails")
             .then(res => res.json())
             .then(data => setCarData(data))
     }, [setCarData])

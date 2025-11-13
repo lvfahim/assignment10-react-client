@@ -10,7 +10,7 @@ const MyListIng = () => {
 
     useEffect(() => {
         if (user?.email) {
-            fetch(`https://assigment-10-server-gamma.vercel.app/myCarList?email=${user.email}`,{
+            fetch(`http://localhost:5000/myCarList?email=${user.email}`,{
                 headers:{
                     authorization:`Bearer ${user.accessToken}`
                 }
