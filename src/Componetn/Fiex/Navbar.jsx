@@ -9,15 +9,24 @@ import "react-tooltip/dist/react-tooltip.css";
 const Navbar = () => {
     const { user, LogOut } = useContext(AuthContext)
     const Links = <>
-        <li><NavLink to='/'>Home</NavLink></li>
-        <li><NavLink to='/aboutUs'>About Us</NavLink></li>
-        <li><NavLink to='/buyCar'>My Bookings</NavLink></li>
-        <li><NavLink to='/browseCar'>Browse Cars</NavLink></li>
-        <li><NavLink to='/myListing'>My Listings</NavLink></li>
-        <li><NavLink to='/abbCar'>Add Car</NavLink></li>
-        <li><NavLink to='/blog'>Blog</NavLink></li>
-        <li><NavLink to='/ourServis'>Our Services</NavLink></li>
-        <li><NavLink to='/user'>User</NavLink></li>
+        <li data-tooltip-id="infoTip"
+            data-tooltip-content="Home"><NavLink to='/'>Home</NavLink></li>
+        <li data-tooltip-id="infoTip"
+            data-tooltip-content="About Us"><NavLink to='/aboutUs'>About Us</NavLink></li>
+        <li data-tooltip-id="infoTip"
+            data-tooltip-content="My Booking"><NavLink to='/buyCar'>My Bookings</NavLink></li>
+        <li data-tooltip-id="infoTip"
+            data-tooltip-content="Browsr Cars"><NavLink to='/browseCar'>Browse Cars</NavLink></li>
+        <li data-tooltip-id="infoTip"
+            data-tooltip-content="My Listings"><NavLink to='/myListing'>My Listings</NavLink></li>
+        <li data-tooltip-id="infoTip"
+            data-tooltip-content="Add Car"><NavLink to='/abbCar'>Add Car</NavLink></li>
+        <li data-tooltip-id="infoTip"
+            data-tooltip-content="Blog"><NavLink to='/blog'>Blog</NavLink></li>
+        <li data-tooltip-id="infoTip"
+            data-tooltip-content="Our Services"><NavLink to='/ourServis'>Our Services</NavLink></li>
+        <li data-tooltip-id="infoTip"
+            data-tooltip-content="User"><NavLink to='/user'>User</NavLink></li>
 
     </>
     const heandlLogOut = () => {
@@ -51,7 +60,7 @@ const Navbar = () => {
                         <span className="text-blue-500">o</span>ri
                         <span className="text-blue-500">o</span>
                     </h1></Link>
-                      <Tooltip id="infoTip" place="top" />
+                    <Tooltip id="infoTip" place="top" />
                 </div>
                 <div className=" navbar-end hidden lg:flex">
                     <ul className="menu menu-horizontal px-1 ">

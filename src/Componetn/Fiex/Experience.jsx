@@ -4,6 +4,8 @@ import Woman from '../../assets/woman1.jpg'
 import Woman2 from '../../assets/woman2.jpg'
 import person3 from "../../assets/images (1).jpg";
 import { Link } from "react-router";
+import { Tooltip } from "react-tooltip";
+import "react-tooltip/dist/react-tooltip.css";
 
 const Experience = () => {
     return (
@@ -59,10 +61,11 @@ const Experience = () => {
 
                     {/* Button & Founder Info */}
                     <div className="flex items-center gap-6 mt-6">
-                        <Link to='/aboutUs'><button className="btn bg-blue-500 text-white px-6 hover:bg-black">
+                        <Link to='/aboutUs'><button data-tooltip-id="infoTip"
+                        data-tooltip-content="About more" className="btn bg-blue-500 text-white px-6 hover:bg-black">
                             MORE ABOUT US →
                         </button></Link>
-
+                         <Tooltip id="infoTip" place="top" />
                         <div className="flex items-center gap-3">
                             <img
                                 src={person3}

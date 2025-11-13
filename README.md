@@ -1,16 +1,39 @@
-# React + Vite
+# Car Rental Website
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+A modern **Car Rental web application** built with **React 19**, **Vite**, **Tailwind CSS**, and **Firebase**, featuring smooth animations, typewriter effects, car listings, and interactive UI components.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 🛠 Technologies Used
 
-## React Compiler
+- **React 19** – Frontend library for building UI
+- **Vite** – Fast development & build tool
+- **Tailwind CSS** – Utility-first CSS framework
+- **Firebase** – Backend for authentication, database, and hosting
+- **Framer Motion** – Animations
+- **React Router v7** – Client-side routing
+- **React Icons** – Icon library
+- **React Slick & Slick Carousel** – Carousels for car listings
+- **React Simple Typewriter** – Typewriter text effect
+- **React Toastify** – Toast notifications
+- **React Tooltip** – Tooltips
+- **SweetAlert2** – Beautiful alerts
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## 📁 Project Structure
+## MY COMPONETN
+1.Home
+2.About US
+3.My Booking
+4.Browse Car 
+5.My Listing
+6.Add Car
+7.Blog
+8.Our Servis
+9.Usr
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Client-side GitHub Repository => https://github.com/lvfahim/assignment10-react-client.git
+Server-side GitHub Repository => https://github.com/lvfahim/assignment10-react-server.git
+Live Website Link Client-side => startling-tiramisu-00ff96.netlify.app
+Live Website Link Server-side => https://assigment-10-server-gamma.vercel.app/
